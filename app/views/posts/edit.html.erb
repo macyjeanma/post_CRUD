@@ -1,0 +1,23 @@
+<h1>修改文章</h1>
+<% if  @post.errors.any? %>
+  <ul>
+  <% @post.errors.full_message.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+<%= form_for(@post) do |p|%>
+
+  <div>
+    <%= p.label :title,"文章名稱" %>
+    <%= p.text_field :title %>
+  </div>
+
+  <div>
+    <%= p.label :description,"文章內容" %>
+    <%= p.text_area :description %>
+  </div>
+
+  <%= p.submit "送出" %>
+
+<% end %>

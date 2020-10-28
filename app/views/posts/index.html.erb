@@ -1,0 +1,14 @@
+<h1>所有貼文</h1>
+<%= link_to '新增貼文', new_post_path %>
+<ul>
+  <% @post.each do |post| %>
+    <li>
+      <% link_to post.title, post_path(post) %>
+      <% link_to "編輯", edit_post_path(post) %>
+      <% link_to "刪除", post_path(post.id), method: 'delete', data: { confire:'確認刪除'} %>
+    </li>
+  <% end %>
+</ul>
+
+
+
